@@ -1,4 +1,11 @@
 # EcoBudget 🌿
+# EcoBudget est une application de gestion budgétaire développée 
+# en Kotlin Multiplatform (KMP) dans le cadre de notre formation 
+# en Master 2 genie logiciel. Ce projet vise à mutualiser la logique métier,
+# les modèles de données et les ressources au sein d'un module partagé (shared),
+# tout en migrant les dépendances Android natives vers des solutions 
+# multiplateformes comme Compose Multiplatform et kotlinx-datetime.
+
 # Process d''implementation du projet devma-2025-2026':
 
 # 1- clonage du projet (devma 2025-2026-projet Ecobudget) depuis le dépot git
@@ -13,13 +20,12 @@
 # Nettoyage : suppression de  implementation(libs.kotlinx.coroutines.core) et synchronisation ...
 
 # migration des données (modèles et données) vers le module 'shared')
-
+# migration des couches de ddonnées et presentation (layers) vers le module 'shared'
     
 
 
 
-
-# Difficultés rencontrées : 
+# Difficultés rencontrées et Corrections apportées: 
 
 #  1- Géneration d'exceptions (erreurs ) lors de la synchronisation du projet après mise à jour de build.gradle.kts.
 # problème dû à la position du bloc android dans le fichier build.gradle.kts . 

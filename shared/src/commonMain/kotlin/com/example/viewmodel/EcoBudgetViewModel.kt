@@ -13,8 +13,11 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
-import java.util.Calendar
-import java.util.UUID
+import com.example.data.repository.FakeTransactionRepository.Companion.generateId
+import kotlinx.datetime.Clock
+import kotlinx.datetime.LocalDateTime
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toInstant
 
 /**
  * Classe de données immuable représentant l'état complet de l'interface pour EcoBudget.
@@ -230,18 +233,15 @@ class EcoBudgetViewModel(
                 // Création d'une nouvelle transaction dans le mois affiché
                 val currentYearMonth = _currentMonth.value
                 val dateToUse = if (currentYearMonth == YearMonth.current()) {
-                    System.currentTimeMillis()
+                    Clock.System.now().toEpochMilliseconds()
                 } else {
-                    val cal = Calendar.getInstance()
-                    cal.set(Calendar.YEAR, currentYearMonth.year)
-                    cal.set(Calendar.MONTH, currentYearMonth.month)
-                    cal.set(Calendar.DAY_OF_MONTH, 15)
-                    cal.set(Calendar.HOUR_OF_DAY, 12)
-                    cal.timeInMillis
+                    LocalDateTime(currentYearMonth.year, currentYearMonth.month, 15, 12, 0)
+                        .toInstant(TimeZone.currentSystemDefault())
+                        .toEpochMilliseconds()
                 }
 
                 val newTransaction = Transaction(
-                    id = UUID.randomUUID().toString(),
+                    id = generateId(),
                     title = title.trim(),
                     amount = amount,
                     date = dateToUse,

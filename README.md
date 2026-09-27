@@ -21,8 +21,8 @@
 
 # migration des données (modèles et données) vers le module 'shared')
 # migration des couches de ddonnées et presentation (layers) vers le module 'shared'
+# Centralisation des ressources textuelles
     
-
 
 
 # Difficultés rencontrées et Corrections apportées: 
@@ -42,13 +42,14 @@
 # Correction 5 - Les imports java.util.Calendar et java.util.UUID ont été  supprimés et adapter selon le modele YearMonth
 # 6 -erreurs de compatibilité de class java (date...),après migration des données vers commonMain.
 # Correction 6- Remplacer les imports java.util...par  kotlinx.datetime , le calcul de la date (Java) et l'UUID par id = generateId(),
+# 7 - Erreurs sanq les fichiers du dossier UI-COMPONENTS (AddTransactionDialog.kt , MonthNavigatorBar.kt , TransactionCard.kt):
+#  Correction 7 -remplacement dans les 3 fichiers ; R.string par Res.string
 
 
+## Conclusion / Build
 
+Capture de l'application après compilation et exécution sur émulateur Android :
 
-
-
-
-
-
-
+<p align="center">
+  <img src="appCaptureEcoBudget.jpeg" alt="Écran principal d'EcoBudget" width="300"/>
+</p>

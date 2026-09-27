@@ -62,7 +62,13 @@ android {
 }
 
 // Autorise le module Android 'app' à consommer l'objet Res
+//compose.resources {
+  //  publicResClass = true
+//}
+
+
 compose.resources {
     publicResClass = true
+    packageOfResClass = "ecobudget.shared.generated.resources"
+    generateResClass = always
 }
-
